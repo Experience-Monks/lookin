@@ -33,6 +33,24 @@ var countItems = 0;
  * @class lookin
  * @param  {Object} settings The properties what you can send in via settings is described above
  * @return {lookin} An instance of lookin
+ *
+ * @example
+ * ```javascript
+ * var lookin = require( 'lookin' );
+ *
+ * var scene = lookin();
+ *
+ * scene.create( {
+ * 	el: 'item3d',
+ * 	z: -1000,
+ * 	inverseScale: true // will compensate items scale to keep it original scale
+ * })
+ * .create( {
+ * 	el: 'item3d2',
+ * 	z: -300,
+ * 	inverseScale: false // will not scale item to remain at original size
+ * });
+ * ```
  */
 function lookin( settings ) {
 
