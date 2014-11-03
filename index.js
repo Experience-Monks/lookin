@@ -33,6 +33,8 @@ function lookin( settings ) {
 		height: '100vh',
 		perspective: s.perspective
 	});
+
+	this.origin( 0.5, 0.5 );
 }
 
 lookin.prototype = {
