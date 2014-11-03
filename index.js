@@ -29,7 +29,8 @@ var countItems = 0;
  * 	perspective: 1000 // the perspective value for the 3d camera. By default this is 1000
  * }
  * ```
- * 
+ *
+ * @class lookin
  * @param  {Object} settings The properties what you can send in via settings is described above
  * @return {lookin} An instance of lookin
  */
