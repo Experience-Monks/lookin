@@ -40,6 +40,9 @@ Here are settings you can pass to lookin:
 **Scope**: inner class of [lookin](#module_lookin)  
 **Returns**: `lookin` - An instance of lookin  
 **Example**  
+The following will create a parallax scene where one item is being inverse scaled and the
+other is not.
+
 ```javascript
 var lookin = require( 'lookin' );
 
@@ -55,6 +58,11 @@ scene.create( {
 	z: -300,
 	inverseScale: false // will not scale item to remain at original size
 });
+
+window.onmousemove = function( ev ) {
+
+	scene.origin( ev.pageX / window.innerWidth, ev.pageY / window.innerHeight );
+};
 ```
 
 <a name="module_lookin..lookin#create"></a>

@@ -35,6 +35,9 @@ var countItems = 0;
  * @return {lookin} An instance of lookin
  *
  * @example
+ * The following will create a parallax scene where one item is being inverse scaled and the
+ * other is not.
+ * 
  * ```javascript
  * var lookin = require( 'lookin' );
  *
@@ -50,6 +53,11 @@ var countItems = 0;
  * 	z: -300,
  * 	inverseScale: false // will not scale item to remain at original size
  * });
+ *
+ * window.onmousemove = function( ev ) {
+ *
+ * 	scene.origin( ev.pageX / window.innerWidth, ev.pageY / window.innerHeight );
+ * };
  * ```
  */
 function lookin( settings ) {
