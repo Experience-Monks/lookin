@@ -1,0 +1,28 @@
+{
+  "name": "lookin",
+  "version": "1.0.0",
+  "description": "This will create \"parallax\" scenes where you lookin as if looking into a fish bowl",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jam3/lookin.git"
+  },
+  "keywords": [
+    "parallax",
+    "css3",
+    "transform"
+  ],
+  "author": "Mikko Haapoja <me@mikkoh.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jam3/lookin/issues"
+  },
+  "homepage": "https://github.com/Jam3/lookin",
+  "dependencies": {
+    "dom-select": "0.0.0",
+    "dom-style": "0.0.3"
+  }
+}
