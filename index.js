@@ -1,3 +1,5 @@
+/** @module lookin */
+
 module.exports = lookin;
 
 var find = require( 'dom-select' ),
@@ -6,6 +8,31 @@ var find = require( 'dom-select' ),
 
 var countItems = 0;
 
+/**
+ * lookin allows you to create parallaxed scenes where you're rotating the camera easily.
+ *
+ * It will adhere to the original css defined for the element as much as possible.
+ *
+ * To instantiate lookin you must pass in a settings object.
+ *
+ * This settings object must contain a "container" dom element or a selector string for that dom
+ * element. After this all items to be made 3d should exist in this container.
+ *
+ * Here are settings you can pass to lookin:
+ * ```javascript
+ * {
+ * 	/// required ///
+ * 
+ * 	/// optional //
+ * 	el: 'body', // this is a dom element or selector to the container which will contain items
+ * 				// to parallax or make 3d. By default the body will be used if nothing is passed
+ * 	perspective: 1000 // the perspective value for the 3d camera. By default this is 1000
+ * }
+ * ```
+ * 
+ * @param  {Object} settings The properties what you can send in via settings is described above
+ * @return {lookin} An instance of lookin
+ */
 function lookin( settings ) {
 
 	if( !( this instanceof lookin ) )
@@ -39,6 +66,18 @@ function lookin( settings ) {
 
 lookin.prototype = {
 
+	/**
+	 * create will make a new "3d item". 
+	 *
+	 * create expects a settings object. This object may contain
+	 * `name` which can be used as a key to reference 3d items after.
+	 * 
+	 * Other settings which you can pass are defined in the
+	 * [README.md for item3d](./lib/item3d/README.md).
+	 * 
+	 * @param  {Object} settings See above for description of settings
+	 * @chainable
+	 */
 	create: function( settings ) {
 
 		var s = this.s,
@@ -55,11 +94,31 @@ lookin.prototype = {
 		return this;
 	},
 
+	/**
+	 *	using get you can query the 3d items which the lookin scene
+	 *	contains. Pass in a string which is a key to a 3d item defined
+	 *	in the create function.
+	 * 
+	 * @param  {String} name a key to the 3d item previously created in create
+	 * @return {item3d} this is an item3d object if found and undefined if not found
+	 */
 	get: function( name ) {
 
 		return this.items[ name ];
 	},
 
+	/**
+	 * this function will change the perspective-origin of the container element passed
+	 * when setting up `lookin`.
+	 *
+	 * For example if using with a mobile device as the accelerometer sends data you would
+	 * send in percentages for the amount of rotation.
+	 * 
+	 * @param  {Number} x the x value for perspective origin. Typically between 0 - 1 however theres
+	 *                    nothing stopping you from sending smaller or larger values.
+	 * @param  {Number} y the y value for perspective origin. Typically between 0 - 1 however theres
+	 *                    nothing stopping you from sending smaller or larger values.
+	 */
 	origin: function( x, y ) {
 
 		css( this.container, {
