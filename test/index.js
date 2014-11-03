@@ -72,5 +72,5 @@ scene.get( 'rWall' ).rotateY( 90 ).apply();
 
 window.onmousemove = function( ev ) {
 
-	scene.rotate( ev.pageX / window.innerWidth * 90, ev.pageY / window.innerHeight * 90 );
+	scene.origin( ev.pageX / window.innerWidth, ev.pageY / window.innerHeight );
 };

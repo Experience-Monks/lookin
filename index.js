@@ -58,11 +58,11 @@ lookin.prototype = {
 		return this.items[ name ];
 	},
 
-	rotate: function( x, y ) {
+	origin: function( x, y ) {
 
 		css( this.container, {
 
-			'perspective-origin': ( x / 90 * 100 ) + '% ' + ( y / 90 * 100 ) + '% '			
+			'perspective-origin': ( x * 100 ) + '% ' + ( y * 100 ) + '% '			
 		});
 	}
 };
