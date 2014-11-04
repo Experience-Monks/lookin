@@ -26,7 +26,11 @@ var countItems = 0;
  * 	/// optional //
  * 	el: 'body', // this is a dom element or selector to the container which will contain items
  * 				// to parallax or make 3d. By default the body will be used if nothing is passed
- * 	perspective: 1000 // the perspective value for the 3d camera. By default this is 1000
+ * 	perspective: 1000, // the perspective value for the 3d camera. By default this is 1000
+ * 	zIndexOff: 1000 // if you'd like to z-index items on screen pass in an offset. Some browsers
+ * 					// do not render elements that have a negative z-index therefore this value
+ * 					// will offset those negative z-indeces. If no value is passed then z-indexing
+ * 					// wont be performed
  * }
  * ```
  *
@@ -71,6 +75,7 @@ function lookin( settings ) {
 
 	s.el = s.el || 'body';
 	s.perspective = s.perspective || 1000;
+	s.zIndexOff = s.zIndexOff === undefined ? null : s.zIndexOff;
 
 	if( typeof s.el == 'string' )
 		this.container = find( s.el );
@@ -112,6 +117,7 @@ lookin.prototype = {
 
 		settings.container = this.container;
 		settings.perspective = s.perspective;
+		settings.zIndexOff = s.zIndexOff;
 
 		if( name )
 			this.items[ name ] = item3d( settings );
