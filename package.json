@@ -1,6 +1,6 @@
 {
   "name": "lookin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This will create \"parallax\" scenes where you lookin as if looking into a fish bowl",
   "main": "index.js",
   "scripts": {
