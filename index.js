@@ -74,7 +74,7 @@ function lookin( settings ) {
 	this.items = {};
 
 	s.el = s.el || 'body';
-	s.perspective = s.perspective || 1000;
+	s.perspective = ( s.perspective || 1000 ) + 'px';
 	s.zIndexOff = s.zIndexOff === undefined ? null : s.zIndexOff;
 
 	if( typeof s.el == 'string' )
