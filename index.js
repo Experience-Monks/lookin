@@ -90,7 +90,8 @@ function lookin( settings ) {
 		position: 'relative',
 		width: '100vw',
 		height: '100vh',
-		perspective: s.perspective + 'px'
+		perspective: s.perspective + 'px',
+		'-webkit-perspective': s.perspective + 'px'
 	});
 
 	this.origin( 0.5, 0.5 );
@@ -156,7 +157,8 @@ lookin.prototype = {
 
 		css( this.container, {
 
-			'perspective-origin': ( x * 100 ) + '% ' + ( y * 100 ) + '% '			
+			'-webkit-perspective-origin': ( x * 100 ) + '% ' + ( y * 100 ) + '% ',
+			'perspective-origin': ( x * 100 ) + '% ' + ( y * 100 ) + '% '
 		});
 	}
 };
